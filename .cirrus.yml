@@ -40,11 +40,11 @@ task:
       - cd ~/rom
       - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
       - sudo chmod a+rx /usr/local/bin/repoo
-      - repo init --depth=1 --no-repo-verify -u https://github.com/LineageOS-Revived/android.git -b lineage-17.1 -g default,-mips,-darwin,-notdefault
+      - repo init -u https://github.com/LineageOS-Revived/android.git -b lineage-17.1
       - git clone --depth=1 https://github.com/texascake/local_manifest.git -b los-revived .repo/local_manifests
       - sudo apt-get update && sudo apt-get install -y git-lfs && git lfs install
       - rm -rf .repo/repo && git clone https://gerrit.googlesource.com/git-repo .repo/repo
-      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+      - repo sync -j8
       - repo forall -c 'git lfs install && git lfs pull && git lfs checkout'
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Sync Completed!"
 
