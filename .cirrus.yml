@@ -35,7 +35,7 @@ task:
       - ./w.sh
 
   Sync_script:
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="🔄 Start sync Qassa Source. . ."
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="🔄 Start sync QASSA Source. . ."
       - mkdir -p ~/rom
       - cd ~/rom
       - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
@@ -53,15 +53,15 @@ task:
   Build_script:
       - export BUILD_USERNAME="queen"
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="🛠️ Build Qassa for X00T Started! https://cirrus-ci.com/github/texascake/cirrus-ci"
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="🛠️ Boeild QASSA Started! https://cirrus-ci.com/build/$CIRRUS_BUILD_ID"
       - ./collect.sh
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Build $(cd ~/rom/out/target/product/X00T/ && ls qassa*.zip) Completed!"
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Boeild $(cd ~/rom/out/target/product/X00T/ && ls qassa*.zip) Completed!"
 
   Upload_script:
       - ./upload.sh
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Compress ccache"
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="📮 Compressing ccache...."
       - ./ziping.sh
       - cd ~/
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="📤 Uploading ccache...."
       - rclone copy ccache.tar.gz Gdrive:qassa -P
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Ccache Uploaded Successfully!"
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ ccache Uploaded Successfully!"
