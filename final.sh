@@ -12,4 +12,3 @@ ccache -z
 
 $lunch
 $make -j8
-
