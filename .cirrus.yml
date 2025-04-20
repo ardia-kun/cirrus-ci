@@ -59,7 +59,7 @@ task:
       - ./upload.sh
 #      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Compressing ccache"
 #      - ./ziping.sh
-      - cd ~/
+#      - cd ~/
 #      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="📤 Uploading ccache...."
 #      - rclone copy ccache.tar.gz Gdrive:lineage -P
 #      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Ccache Uploaded Successfully!"
