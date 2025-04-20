@@ -10,8 +10,7 @@ ccache -M 100G -F 0
 ccache -o compression=true
 ccache -z
 $lunch
-$make -j8 &
-sleep 95m
+$make -j$(nproc --all) &
+sleep 100m
 kill %1
 ccache -s
-
