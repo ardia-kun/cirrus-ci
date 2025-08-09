@@ -3,8 +3,8 @@ env:
     rcloneconfig: "ENCRYPTED[ec7734e8b495e026a95409b8984a158aaa5c9db4dc96b5eca607b136703832e9a5de80b7649074444bd2ec12ebd095ff]"
     tokentl: "ENCRYPTED[4831f48cbdfe4eb5e1638bab74422e6a4ae07d1daf9943f5e29d43687bbe9ee06751d71edb1ae64b6cd9f981181485db]"
     idtl: "ENCRYPTED[e0f6a035b67c0c702245d7f49ae3a29c7cd548c1ec498ea7e323928954e7bb7e915a1d314e7ae812005fa77718c1827d]"
-    lunch: breakfast X00TD userdebug
-    make: brunch X00TD
+    lunch: lunch lineage_X00TD-userdebug
+    make: mka bacon
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
