@@ -12,4 +12,4 @@ ccache -o compression=true
 ccache -z
 
 $lunch
-$make
+$make -j$(nproc --all)
