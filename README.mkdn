@@ -1,0 +1,6 @@
+<table border="5" cellpadding="10">
+<td>
+		<a href="https://github.com/lineageos-q-mean">
+				<img src="https://avatars.githubusercontent.com/u/24304779?s=200&v=4" width="100" alt="LineageOS"></a>
+		</td>
+<td><b>LineageOS</b></td>
