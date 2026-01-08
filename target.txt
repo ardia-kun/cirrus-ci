@@ -1,2 +1,1 @@
 LineageOS-Q-Mean [https://github.com/lineageos-q-mean]
-Build
