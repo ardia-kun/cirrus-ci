@@ -49,7 +49,7 @@ task:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Sync Completed!"
 
   Build_script:
-      - export BUILD_USERNAME="queen"
+      - export BUILD_USERNAME="queeneunji"
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="🛠️ Build LineageOS-Q-Mean for https://cirrus-ci.com/build/$CIRRUS_BUILD_ID"
       - ./collect.sh
