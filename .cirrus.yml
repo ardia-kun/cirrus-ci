@@ -41,7 +41,7 @@ task:
       - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
       - sudo chmod a+rx /usr/local/bin/repoo
       - repo init -u https://github.com/lineageos-q-mean/android -b lineage-17.1
-      - git clone --depth=1 https://github.com/ardia-kun/local_manifests -b lineage-17.1 .repo/local_manifests
+      - git clone --depth=1 https://github.com/ardia-kun/local_manifest -b lineage-17.1 .repo/local_manifests
       - sudo apt-get update && sudo apt-get install -y git-lfs && git lfs install
       - rm -rf .repo/repo && git clone https://gerrit.googlesource.com/git-repo .repo/repo
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
