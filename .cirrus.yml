@@ -1,9 +1,9 @@
 env:
-    credentials: "ENCRYPTED[4f2ed4bc06ea9b13426d3c2b0a32d822540042f7e18eab0ab30efe538432dd1b2d06b90466747f0fd2d80bdd34375f3b]"
-    rcloneconfig: "ENCRYPTED[ec7734e8b495e026a95409b8984a158aaa5c9db4dc96b5eca607b136703832e9a5de80b7649074444bd2ec12ebd095ff]"
-    tokentl: "ENCRYPTED[4831f48cbdfe4eb5e1638bab74422e6a4ae07d1daf9943f5e29d43687bbe9ee06751d71edb1ae64b6cd9f981181485db]"
-    idtl: "ENCRYPTED[e0f6a035b67c0c702245d7f49ae3a29c7cd548c1ec498ea7e323928954e7bb7e915a1d314e7ae812005fa77718c1827d]"
-    lunch: lunch lineage_X00TD-userdebug
+    credentials: "ENCRYPTED[!8663d0c01c8428273bd7f27987bea0ad216a023b594717988a4732becda90c0003f77a34d27be2c14e6975921b23298b!]"
+    rcloneconfig: "ENCRYPTED[!90363c0d72425f7d1882c3f9a50aa0f627f3391dfa05b6e77df04f8ca4b18e10915522a598f82804bd0579a55e0c2052!]"
+    tokentl: "ENCRYPTED[!7c2348417aa39e30de9a8d130a1e3427c6b8ae2d638c8bd2394a648aef19953f1ae50bb717357e23a4cd50b818cb0a1b!]"
+    idtl: "ENCRYPTED[!85540730579bdb75a2cdc93c296ede6215c55eca341219269537302d88b14aa1156b3ed952b5f3f9cf86243a2c0295e0!]"
+    lunch: breakfast surya userdebug
     make: mka bacon
 
 task:
@@ -18,12 +18,12 @@ task:
        - export DEBIAN_FRONTEND=noninteractive
        - mkdir -p ~/.config/rclone
        - echo "$rcloneconfig" > ~/.rclone.conf
-       - git config --global user.name "texascake"
-       - git config --global user.email "budalblimbing@gmail.com"
+       - git config --global user.name "ardia-kun"
+       - git config --global user.email "ardiayogabekti@gmail.com"
        - echo "$credentials" > ~/.git-credentials
        - git config --global credential.helper store --file=~/.git-credentials
        - mkdir -p ~/ccache
-       - rclone copy Gdrive:lineage/ccache.tar.gz ~/ -P
+       - rclone copy kidz:lineage/ccache.tar.gz ~/ -P
        - cd ~/
        - time tar xf ccache.tar.gz
        - cd ~/
@@ -41,7 +41,7 @@ task:
       - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
       - sudo chmod a+rx /usr/local/bin/repoo
       - repo init -u https://github.com/lineageos-q-mean/android -b lineage-17.1
-      - git clone --depth=1 https://github.com/Kneba/local_manifests -b lineage-17.1 .repo/local_manifests
+      - git clone --depth=1 https://github.com/ardia-kun/local_manifests -b lineage-17.1 .repo/local_manifests
       - sudo apt-get update && sudo apt-get install -y git-lfs && git lfs install
       - rm -rf .repo/repo && git clone https://gerrit.googlesource.com/git-repo .repo/repo
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
@@ -49,7 +49,7 @@ task:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Sync Completed!"
 
   Build_script:
-      - export BUILD_USERNAME="queeneunji"
+      - export BUILD_USERNAME="kidz"
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="🛠️ Build LineageOS-Q-Mean for https://cirrus-ci.com/build/$CIRRUS_BUILD_ID"
       - ./collect.sh
@@ -61,5 +61,5 @@ task:
       - ./ziping.sh
       - cd ~/
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="📤 Uploading ccache...."
-      - rclone copy ccache.tar.gz Gdrive:lineage -P
+      - rclone copy ccache.tar.gz kidz:lineage -P
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="✅ Ccache Uploaded Successfully!"
